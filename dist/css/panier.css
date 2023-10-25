@@ -1,0 +1,80 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: peru;
+    border-radius: 5rem;
+}
+
+#panier {
+    min-height: 100vh;
+    background: linear-gradient(to right, #ffa07ae1, moccasin);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+table {
+    background-color: aliceblue;
+    width: 70%;
+    border-radius: 8px;
+    font-size: 2.3rem;
+    text-align: center;
+    border-collapse: collapse;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+table img {
+    height: 130px;
+}
+th {
+    padding: 30px 0;
+    text-align: center;
+}
+td {
+    border-top: 0.5px solid coral;
+}
+tr {
+    border-bottom: 0.5px solid coral;
+}
+.total {
+    border-bottom: 0;
+}
+.total th {
+    float: left;
+    padding: 10px;
+    color: peru;
+    margin-bottom: 20px;
+}
+
+span.close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 5rem;
+    cursor: pointer;
+}
+.delete-icon {
+    height: 50px;
+    cursor: pointer;
+}
+.delete-icon:hover {
+    transform: scale(1.1);
+}

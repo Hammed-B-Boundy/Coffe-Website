@@ -1,0 +1,348 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: peru;
+    border-radius: 5rem;
+}
+a:hover {
+    text-decoration: none;
+}
+section {
+    padding: 2rem 15rem;
+    min-height: 100vh;
+}
+span {
+    color: #d3ad7f;
+}
+#heading {
+    text-align: center;
+    color: aliceblue;
+    font-size: 4.5rem;
+}
+
+body {
+    background-color: #010103;
+}
+#home {
+    background: url('../../coffee_img/home-img.jpeg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 100;
+    height: 100px; 
+    width: 100%;
+    border-bottom: .1rem solid #acacac;
+    padding: 0 15rem;
+}
+header #logo {
+    height: 70px;
+}
+nav ul a {
+    color: aliceblue;
+    margin: 0 20px;
+    font-size: 1.7rem;
+}
+nav ul a:hover {
+    color: #d3ad7f;
+    padding-bottom: .5rem;
+    border-bottom: .1rem solid rgba(255,255,255,.5);
+}
+a.panier-link i {
+    font-size: 2.5rem;
+    color: aliceblue;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    position: relative;
+}
+a.panier-link i:hover {
+    color: peru;
+}
+a.panier-link:hover {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+span.counter {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    color: #FFF;
+    background-color: red;
+    font-size: 12px;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Home content */
+.home-content {
+    display: flex;
+    color: aliceblue;
+    height: calc(100vh - 100px);
+    padding-top: 8rem;
+}
+.home-content h1 {
+    font-size: 5rem;
+}
+.menu-link {
+    font-size: 1.7rem;
+    color: #000;
+    background-color: #d3ad7f;
+    padding: 1rem 3.7rem;
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px #d3ad7f;
+    display: inline-block;
+    margin-top: 3rem;
+}
+.menu-link:hover {
+    color: #000;
+    letter-spacing: .25rem;
+}
+.desc {
+    margin-top: 10rem;
+}
+.desc i {
+    margin: 5rem .8rem;
+    background-color: aliceblue;
+    color: chocolate;
+    border-radius: 50px;
+    padding: 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/* About content */
+#about {
+    color: aliceblue;
+}
+#about h1 {
+    text-align: center;
+}
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10rem;
+}
+.about-box {
+    width: 300px;
+    position: relative;
+    margin-bottom: 10rem;
+}
+.about-content .about-box img {
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: -5rem;
+    transform: translateX(-50%);
+}
+.coffe-box {
+    background: rgba(255,255,255,.5);
+    height: 250px;
+    border-radius: 20px;
+    padding: 10rem 2rem 15rem 2rem;
+}
+.like_shop {
+    text-align: center;
+}
+.like_shop i {
+    margin: 0 1rem;
+    font-size: 2.5rem;
+}
+.description {
+    width: 450px;
+}
+.description .more {
+    font-size: 1.3rem;
+    color: black;
+    background: linear-gradient(to right, floralwhite, chocolate);
+    padding: 1rem 4rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 2rem;
+    border: none;
+}
+.description .more:hover {
+    letter-spacing: .25rem;
+}
+.price {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background-color: #d3ad7f;
+    padding: 5px 20px;
+}
+.price strong {
+    font-size: 1.3rem;
+}
+
+
+/* Coffe menu Content */
+#menu {
+    width: 100%;
+}
+#menu .menu-box {
+    width: 100%;
+    height: auto;
+    border: 30px groove sienna;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.coffe-box {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2rem 1.2rem;
+    padding: 2rem 0;
+}
+.coffe-img {
+    height: 120px;
+}
+small {
+    color: beige;
+    font-size: 1.5rem;
+}
+
+.coffe-price {
+    color: moccasin;
+    font-size: 2rem;
+}
+
+
+/* Contact content */
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #13131a;
+}
+.contact-content .left {
+    width: 900px;
+    background-color: aliceblue;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.right input, .right textarea {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #010103;
+    color: aliceblue;
+    border: .1rem solid #acacac;
+    border-radius: 0;
+    width: 500px;
+}
+.right textarea {
+    outline: none;
+    resize: none;
+}
+.contact-btn {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    border-radius: 1.2rem;
+    border: none;
+}
+.contact-btn:hover {
+    background-color: peru;
+    color: aliceblue;
+}
+
+
+/* Modal Dialog */
+
+.modal-dialog {
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    width: 900px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    border-radius: 10px;
+    border: 5px solid chocolate;
+}
+.coffe-modal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+.coffe-modal-box .coffe-price, .coffe-modal-box small  {
+    color: peru;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 5rem;   
+}
+
+.ice-cream-img {
+    height: 150px;
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 1.7rem;
+}
