@@ -1,5 +1,10 @@
 <?php 
- session_start();
+ include_once "database.php";
+ $DB = new DB();
+
+ if(isset($_POST['ajouter'])) {
+
+ }
 ?>
 
 <!DOCTYPE html>
@@ -233,21 +238,21 @@
             <h1 id="heading">Coffe <span>Menu</span></h1>
             <div class="menu-box">
                 <?php
-                    include_once 'database.php';
-                    // $req = mysqli_query($con, "SELECT * FROM products");
-                    // while ($row = mysqli_fetch_assoc($req)) {
-                      
+                    $products = $DB->query("SELECT * FROM `products`");
+
+                    foreach($products as $product):
                 ?>
-                <!-- <div class="coffe-box">
-                    <img src="./coffee_img/<?=$row['img']?>" class="coffe-img" alt="coffe image">
-                    <small><?=$row['name']?></small>
-                    <p class="coffe-price"><?=$row['price']?>$</p>
-                    <button type="button">
-                        <a href="add_panier.php?id=<?=$row['id']?>" class="btn btn-add id_product">Ajouter</a>
-                    </button>
-                </div> -->
+                <form method="post" class="coffe-box">
+                    <img src="coffe_img/<?= $product->img; ?>" class="coffe-img" alt="coffe image">
+                    <small ><?= $product->name; ?></small>
+                    <p class="coffe-price"><?= $product->price; ?>$</p>
+                    <input type="hidden" name="product_image" value="<?= $product->img ?>">
+                    <input type="hidden" name="product_name" value="<?= $product->name ?>">
+                    <input type="hidden" name="product_price" value="<?= $product->price ?>">
+                    <input type="submit" value="Ajouter" name="ajouter" class="btn btn-add">
+                </form>
             
-                <?php //} ?>
+                <?php endforeach; ?>
             </div>
         </section>
 
