@@ -29,17 +29,26 @@ html::-webkit-scrollbar-thumb{
     min-height: 100vh;
     background: linear-gradient(to right, #ffa07ae1, moccasin);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10rem;
 }
 table {
     background-color: aliceblue;
-    width: 70%;
+    width: 100%;
     border-radius: 8px;
     font-size: 2.3rem;
     text-align: center;
     border-collapse: collapse;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+.remove-btn {
+    height: 50px;
+    cursor: pointer;
+}
+.remove-btn:hover {
+    scale: 1.2;
 }
 table img {
     height: 130px;
@@ -77,4 +86,29 @@ span.close {
 }
 .delete-icon:hover {
     transform: scale(1.1);
+}
+form.change-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form.change-value input[type="number"] {
+    color: #333;
+    border: 1px solid #333;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 8rem;
+}
+form.change-value input[type="submit"] {
+    padding: .5rem 1.5rem;
+    margin-top: .5rem;
+    background-color: orange;
+    font-size: 1.5rem;
+    color: aliceblue;
+    cursor: pointer;
+    border: .1rem solid #333;
+    box-shadow: 2px 2px 2px #333;
+}
+form.change-value input[type="submit"]:hover {
+    background-color: #333;
 }

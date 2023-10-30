@@ -14,7 +14,7 @@ html{
     scroll-behavior: smooth;
 }
 html::-webkit-scrollbar{
-    width: .8rem;
+    width: 1.5rem;
 }
 html::-webkit-scrollbar-track{
     background: transparent;
@@ -43,7 +43,7 @@ body {
     background-color: #010103;
 }
 #home {
-    background: url('../../coffee_img/home-img.jpeg');
+    background: url('../../coffe_img/home-img.jpeg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -157,8 +157,8 @@ span.counter {
 }
 .about-box {
     width: 300px;
-    position: relative;
     margin-bottom: 10rem;
+    position: relative;
 }
 .about-content .about-box img {
     height: 150px;
@@ -172,8 +172,6 @@ span.counter {
     height: 250px;
     border-radius: 20px;
     padding: 10rem 2rem 15rem 2rem;
-}
-.like_shop {
     text-align: center;
 }
 .like_shop i {
@@ -198,7 +196,7 @@ span.counter {
 }
 .price {
     position: absolute;
-    bottom: -20px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50px;
@@ -223,6 +221,40 @@ span.counter {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+input.btn-add {
+    background-color: aliceblue;
+}
+input.btn-add:hover {
+    background-color: #13131a;
+    color: aliceblue;
+}
+.info {
+    position: sticky;
+    top: 0; left: 0;
+    z-index: 15000;
+    border-radius: .5rem;
+    padding: 1.5rem 2rem;
+    background-color: white;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.info span {
+    font-size: 2.5rem;
+    color: #099;
+    text-transform: none;
+}
+.info i {
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+}
+.info i:hover {
+    color: red;
+}
 .coffe-box {
     width: 300px;
     display: flex;
@@ -231,6 +263,10 @@ span.counter {
     flex-direction: column;
     margin: 2rem 1.2rem;
     padding: 2rem 0;
+    background-color: sienna;
+}
+.coffe-box:hover {
+    transform: scale(1.15);
 }
 .coffe-img {
     height: 120px;
@@ -241,7 +277,7 @@ small {
 }
 
 .coffe-price {
-    color: lime;
+    color: peachpuff;
     font-size: 2rem;
 }
 
@@ -343,5 +379,8 @@ small {
 /* Footer */
 footer {
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 2rem;
+}
+footer p {
+    user-select: none;
 }

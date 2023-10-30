@@ -1,9 +1,24 @@
 <?php 
  include_once "database.php";
  $DB = new DB();
+ $messages = array();
 
  if(isset($_POST['ajouter'])) {
+    $image = $_POST['product_image'];
+    $name = $_POST['product_name'];
+    $price = $_POST['product_price'];
+    $quantity = 1;
 
+    
+    $req = $DB->query("SELECT id FROM `coffe_panier` WHERE img = :image", array("image" => $image));
+    
+    if(!empty($req)) {
+        $messages[] = "Ce produit a déjà été ajouté à votre panier.";
+    }
+    else {
+        $req = $DB->query("INSERT INTO `coffe_panier` (img, name, price, quantity) VALUES(:image, :name, :price, :quantity)", array("image" => $image, "name" => $name, "price" => $price, "quantity" => $quantity));
+        $messages[] = "Vous venez d'ajouter un produit à votre panier.";
+    }
  }
 ?>
 
@@ -26,16 +41,22 @@
         <section id="home">
             <header>
                 <a href="home.php">
-                    <img src="coffee_img\coffee18.png" alt="" id="logo">
+                    <img src="coffe_img/coffe_logo.png" alt="" id="logo">
                 </a>
                 <nav>
+                    <?php
+                        $pdo = $DB->getdb();
+                        $req = $pdo->prepare("SELECT * FROM `coffe_panier`");
+                        $req->execute();
+                        $counter = $req->rowCount();
+                    ?>
                     <ul>
                         <a href="#home">Home</a>
                         <a href="#about">About</a>
                         <a href="#menu">Menu</a>
                         <a href="#contact">Contact</a>
                         <a href="panier.php" class="panier-link">
-                            <i class="fa-solid fa-cart-shopping"><span class="counter">4</span></i>
+                            <i class="fa-solid fa-cart-shopping fa-beat-fade"><span class="counter"><?= $counter ?></span></i>
                         </a>
                     </ul>
                 </nav>
@@ -48,62 +69,62 @@
                     <span class="close" id="close">&times;</span>
 
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee2.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee2.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee3.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee3.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee4.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee4.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee5.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee5.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee6.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee6.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee7.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee7.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee8.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee8.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee2.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee2.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee3.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee3.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee4.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee4.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee5.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee5.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/coffee6.png" class="coffe-img" alt="coffe image">
+                        <img src="./coffe_img/coffee6.png" class="coffe-img" alt="coffe image">
                         <small>Coffe name</small>
                         <p class="coffe-price">$50</p>
                     </div>
@@ -117,62 +138,62 @@
                     <span class="close" id="close">&times;</span>
 
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-1.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-1.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-2.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-2.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-3.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-3.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-4.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-4.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-5.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-5.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-6.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-6.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-7.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-7.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-8.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-8.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-9.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-9.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-10.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-10.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-11.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-11.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
                     <div class="coffe-modal-box">
-                        <img src="./coffee_img/ice-cream-12.jpg" class="ice-cream-img" alt="ice cream image">
+                        <img src="./coffe_img/ice-cream-12.jpg" class="ice-cream-img" alt="ice cream image">
                         <small>Ice cream name</small>
                         <p class="coffe-price">$50</p>
                     </div>
@@ -195,7 +216,7 @@
             <h1 id="heading"><span>About</span> us</h1>
             <div class="about-content">
                 <div class="about-box">
-                    <img src="coffee_img/coffee14.png" alt="coffe img">
+                    <img src="coffe_img/coffee14.png" alt="coffe img">
                     <div class="coffe-box">
                         <h3>Americano</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -203,13 +224,13 @@
                             <i class="fa-solid fa-shop"></i>
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <div class="price">
-                            <strong>$2.50</strong>
-                        </div>
+                    </div>
+                    <div class="price">
+                        <strong>$2.50</strong>
                     </div>
                 </div>
                 <div class="about-box">
-                    <img src="coffee_img/coffee19.png" alt="coffe img">
+                    <img src="coffe_img/coffee19.png" alt="coffe img">
                     <div class="coffe-box">
                         <h3>Cappuccino</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -217,9 +238,9 @@
                             <i class="fa-solid fa-shop"></i>
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <div class="price">
-                            <strong>$2.50</strong>
-                        </div>
+                    </div>
+                    <div class="price">
+                        <strong>$2.50</strong>
                     </div>
                 </div>
                 <div class="about-box description">
@@ -236,6 +257,13 @@
         <!-- Menu section -->
         <section id="menu">
             <h1 id="heading">Coffe <span>Menu</span></h1>
+            <?php 
+                if(isset($messages)) :
+                    foreach ($messages as $message) :
+                        echo "<div class='info'><span>". $message . "</span> <i class='fas fa-times' onclick='this.parentElement.style.display = `none`;'></i></div>";
+                    endforeach;
+                endif;
+            ?>
             <div class="menu-box">
                 <?php
                     $products = $DB->query("SELECT * FROM `products`");
@@ -245,7 +273,7 @@
                 <form method="post" class="coffe-box">
                     <img src="coffe_img/<?= $product->img; ?>" class="coffe-img" alt="coffe image">
                     <small ><?= $product->name; ?></small>
-                    <p class="coffe-price"><?= $product->price; ?>$</p>
+                    <p class="coffe-price"><?= $product->price; ?> FCFA</p>
                     <input type="hidden" name="product_image" value="<?= $product->img ?>">
                     <input type="hidden" name="product_name" value="<?= $product->name ?>">
                     <input type="hidden" name="product_price" value="<?= $product->price ?>">
@@ -261,7 +289,7 @@
             <h1 id="heading"><span>Contact</span> Us</h1>
             <div class="contact-content">
                 <div class="left">
-                    <img src="./coffee_img/coffee20.png" alt="coffe image">
+                    <img src="coffe_img/coffee20.png" alt="coffe image">
                 </div>
                 <form class="right">
                     <input type="text" class="form-control" placeholder="Nom" required>
