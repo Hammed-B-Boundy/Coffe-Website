@@ -1,6 +1,15 @@
 
 $(document).ready(function() {
 
+    $("nav ul a").click(function () {
+        $("nav ul a").css("color", "aliceblue");
+        $("nav ul a").css("border-bottom", "none");
+        $("nav ul a").css("padding-bottom", "none");
+        $(this).css("color", "peachpuff");
+        $(this).css("border-bottom", ".1rem solid peachpuff");
+        $(this).css("padding-bottom", ".5rem");
+    })
+
     // About: **show or hide message**
     $('.message').hide();
     $('.more').click(function() {
